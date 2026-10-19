@@ -1,0 +1,35 @@
+# The King's Dilemma (Horrible Guild) - holder for the House card.
+# Printed and tested: Bambu Lab P1S, 0.4 mm nozzle, PLA Matte.
+#
+# To add another game: copy this file to games/<game-name>.toml, measure your player screen,
+# change the numbers below, run
+#     python screen_holder.py games/<game-name>.toml
+# and check the result in your slicer. Pull requests with new games are welcome.
+
+name = "The King's Dilemma"
+source = "https://www.printables.com/model/872481-kings-dilemma-dashboard"   # design this is based on
+
+[screen]
+centre = 127.0   # width of the centre panel (mm)
+wing = 64.0      # width of each wing (mm) - both wings are the same width
+angle = 60.0     # angle between the centre panel and each wing, as the screen stands (degrees)
+slot = 1.8       # slot width: screen thickness + about 0.3 mm (the House card is ~1.5 mm)
+
+[base]
+height = 25.0    # also the plaque height
+depth = 63.0     # table side -> player side; must be more than wing x sin(angle) + ~5 mm
+
+[plaques]
+# Optional: default plaque texts. `--names` on the command line overrides these.
+names = ["House Delirea", "House Prunier", "House Adderbite", "House Rambam", "House Wulfric"]
+font = "fonts/CinzelDecorative-Bold.ttf"   # any .ttf/.otf, relative to this file or the repo root
+
+[fit]
+plaque = 0.2     # plaque slide clearance per side - raise to 0.25-0.3 if plaques are tight
+lid = 0.25       # lid clearance per side - raise if the lid binds
+
+# [advanced]
+# Any other setting from the script can be overridden here by name, e.g.
+# TRAY_FILLET = 8.0
+# FRONT_LIP_ANGLE = 45.0
+# Run `python screen_holder.py --list-settings` for the full list.
